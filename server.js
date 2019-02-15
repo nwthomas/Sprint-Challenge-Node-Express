@@ -12,6 +12,7 @@ server.get("/", (req, res) => {
 });
 
 server.get("/api/projects/:id", async (req, res) => {
+  // Retrieve project
   try {
     const project = await ProjectDB.get(req.params.id);
     if (project) {
@@ -28,6 +29,7 @@ server.get("/api/projects/:id", async (req, res) => {
 });
 
 server.post("/api/projects", async (req, res) => {
+  // New project
   if (!req.body.name || !req.body.description) {
     res
       .status(400)
@@ -40,6 +42,24 @@ server.post("/api/projects", async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "Error adding the project."
+    });
+  }
+});
+
+server.put("/api/projects/:id", async (req, res) => {
+  console.log(req.body);
+  // Update project
+  try {
+    const project = await ProjectDB.update(req.params.id, req.body);
+    if (project) {
+      res.status(201).json(project);
+    } else {
+      res.status(404).json({ message: "Please update an existing project." });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error updating the project."
     });
   }
 });
