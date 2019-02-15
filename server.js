@@ -1,10 +1,12 @@
 const express = require("express");
 const server = express();
 const helmet = require("helmet");
+const cors = require("cors");
 const ProjectDB = require("./data/helpers/projectModel.js");
 const ActionsDB = require("./data/helpers/actionModel.js");
 server.use(helmet());
 server.use(express.json());
+server.use(cors());
 
 // server.use("/api/projects", projectsRouter);
 
@@ -13,6 +15,22 @@ server.get("/", (req, res) => {
 });
 
 // ========================================================= Projects
+
+server.get("/api/projects", async (req, res) => {
+  try {
+    const projects = await ProjectDB.get();
+    if (projects) {
+      res.status(200).json(projects);
+    } else {
+      res.status(404).json({ message: "No projects found." });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error retrieving the projects."
+    });
+  }
+});
 
 server.get("/api/projects/:id", async (req, res) => {
   try {
@@ -102,6 +120,22 @@ server.delete("/api/projects/:id", async (req, res) => {
 });
 
 // ========================================================= Actions
+
+server.get("/api/actions", async (req, res) => {
+  try {
+    const action = await ActionsDB.get();
+    if (action) {
+      res.status(200).json(action);
+    } else {
+      res.status(404).json({ message: "No actions found." });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error retrieving the actions."
+    });
+  }
+});
 
 server.get("/api/actions/:id", async (req, res) => {
   try {
