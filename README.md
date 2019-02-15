@@ -40,7 +40,9 @@ In RESTful web APIs, everything is a resource; we can access resources via diffe
 
 The API will return an object that contains an HTTP status code and some messages/data to help the client know that the request was successful/unsuccessful.
 
-- [ ] How can we partition our application into sub-applications?
+- [x] How can we partition our application into sub-applications?
+
+We absolutely can; partitioning our server application into sub-applications allows us to route API request to different sections, compartmentalizing our code, and make them more modular. This helps for readability of the code as well as bug finding for specific route issues.
 
 ## Project Setup
 
