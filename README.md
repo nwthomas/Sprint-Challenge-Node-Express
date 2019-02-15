@@ -32,7 +32,9 @@ I learned about static routing using the paths export from Express. This allows 
 
 Middleware (either custom, third-party, or build-in) allows us to perform routing actions, retrieve/modify data, and provides things like security to our server. Middleware is everything that happens under the hood in Express; they are executed in a specific order on the server’s chain of events following a request.
 
-- [ ] Describe a Resource?
+- [x] Describe a Resource?
+
+In RESTful web APIs, everything is a resource; we can access resources via different routes when looking with a URI. The state of these resources is not known from the client to the server and visa-versa.
 
 - [ ] What can the API return to help clients know if a request was successful?
 
