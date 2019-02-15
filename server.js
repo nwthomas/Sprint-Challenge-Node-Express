@@ -71,7 +71,9 @@ server.put("/api/projects/:id", async (req, res) => {
     if (project) {
       res.status(201).json(project);
     } else {
-      res.status(404).json({ message: "Please update an existing project." });
+      res
+        .status(404)
+        .json({ message: "Please update an existing project.", value: null });
     }
   } catch (error) {
     console.log(error);
@@ -85,7 +87,10 @@ server.delete("/api/projects/:id", async (req, res) => {
   try {
     const project = await ProjectDB.remove(req.params.id);
     if (project) {
-      res.status(200).json({ message: "The project has been deleted." });
+      res.status(200).json({
+        message: "The project has been deleted.",
+        numProjectsDeleted: project
+      });
     } else {
       res.status(404).json({ message: "The project could not be found." });
     }
@@ -140,7 +145,9 @@ server.put("/api/actions/:id", async (req, res) => {
     if (action) {
       res.status(201).json(action);
     } else {
-      res.status(404).json({ message: "Please update an existing action." });
+      res
+        .status(404)
+        .json({ message: "Please update an existing action.", value: null });
     }
   } catch (error) {
     console.log(error);
@@ -154,7 +161,10 @@ server.delete("/api/actions/:id", async (req, res) => {
   try {
     const action = await ActionsDB.remove(req.params.id);
     if (action) {
-      res.status(200).json({ message: "The action has been deleted." });
+      res.status(200).json({
+        message: "The action has been deleted.",
+        numActionsDeleted: action
+      });
     } else {
       res.status(404).json({ message: "The action could not be found." });
     }
