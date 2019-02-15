@@ -24,32 +24,42 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+I learned about static routing using the paths export from Express. This allows me to deploy a site to Heroku that utilizes both server and client in the same file. In addition, I also learned that Express is a framework for the back-end in the same way that React is one for the front-end.
 
-- [ ] Describe a Resource?
+- [x] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+Middleware (either custom, third-party, or build-in) allows us to perform routing actions, retrieve/modify data, and provides things like security to our server. Middleware is everything that happens under the hood in Express; they are executed in a specific order on the server’s chain of events following a request.
 
-- [ ] How can we partition our application into sub-applications?
+- [x] Describe a Resource?
+
+In RESTful web APIs, everything is a resource; we can access resources via different routes when looking with a URI. The state of these resources is not known from the client to the server and visa-versa.
+
+- [x] What can the API return to help clients know if a request was successful?
+
+The API will return an object that contains an HTTP status code and some messages/data to help the client know that the request was successful/unsuccessful.
+
+- [x] How can we partition our application into sub-applications?
+
+We absolutely can; partitioning our server application into sub-applications allows us to route API request to different sections, compartmentalizing our code, and make them more modular. This helps for readability of the code as well as bug finding for specific route issues.
 
 ## Project Setup
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add PM as collaborator on Github.
-- [ ] Clone your OWN version of Repo (Not Lambda's by mistake!).
-- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
- 
+- [x] Create a forked copy of this project.
+- [x] Add PM as collaborator on Github.
+- [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
+- [x] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
+
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request.**
-- [ ] Add your Project Manager as a Reviewer on the Pull-request
-- [ ] PM then will count the HW as done by  merging the branch back into master.
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request.**
+- [x] Add your Project Manager as a Reviewer on the Pull-request
+- [x] PM then will count the HW as done by merging the branch back into master.
 
 ## Database Persistence Helpers
 
@@ -69,14 +79,14 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Take the steps necessary to create a `package.json` to keep a record of all dependencies.
-- [ ] Use _yarn_ to add **knex** and **sqlite3** as dependencies to the project. **This is required for database access**.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _nodemon_ so that the **server restarts on changes**. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [x] Take the steps necessary to create a `package.json` to keep a record of all dependencies.
+- [x] Use _yarn_ to add **knex** and **sqlite3** as dependencies to the project. **This is required for database access**.
+- [x] Configure an _npm script_ named _"start"_ that will execute your code using _nodemon_ so that the **server restarts on changes**. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_.
-- [ ] Retrieve the list of actions for a project.
+- [x] Perform CRUD operations on _projects_ and _actions_.
+- [x] Retrieve the list of actions for a project.
 
 ## Database Schemas
 
@@ -103,7 +113,7 @@ Now that we have a way to add, update, remove and retrieve data from the provide
 
 ## Stretch Goal
 
-- Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
-- From the React application show a list of all _projects_ using the API you built.
-- Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
-- Add styling! Perhaps with [`styled-components`](https://www.styled-components.com/).
+- [x] Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
+- [x] From the React application show a list of all _projects_ using the API you built.
+- [ ] Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
+- [ ] Add styling! Perhaps with [`styled-components`](https://www.styled-components.com/).
