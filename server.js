@@ -15,7 +15,6 @@ server.get("/", (req, res) => {
 // ========================================================= Projects
 
 server.get("/api/projects/:id", async (req, res) => {
-  // Retrieve project
   try {
     const project = await ProjectDB.get(req.params.id);
     if (project) {
@@ -32,7 +31,6 @@ server.get("/api/projects/:id", async (req, res) => {
 });
 
 server.post("/api/projects", async (req, res) => {
-  // New project
   if (!req.body.name || !req.body.description) {
     res
       .status(400)
@@ -51,7 +49,6 @@ server.post("/api/projects", async (req, res) => {
 
 server.put("/api/projects/:id", async (req, res) => {
   console.log(req.body);
-  // Update project
   try {
     const project = await ProjectDB.update(req.params.id, req.body);
     if (project) {
@@ -85,7 +82,6 @@ server.delete("/api/projects/:id", async (req, res) => {
 // ========================================================= Actions
 
 server.get("/api/actions/:id", async (req, res) => {
-  // Retrieve project
   try {
     const action = await ActionsDB.get(req.params.id);
     if (action) {
@@ -102,7 +98,6 @@ server.get("/api/actions/:id", async (req, res) => {
 });
 
 server.post("/api/actions", async (req, res) => {
-  // New project
   if (!req.body.project_id || !req.body.description || !req.body.notes) {
     res
       .status(400)
@@ -117,6 +112,23 @@ server.post("/api/actions", async (req, res) => {
     console.log(error);
     res.status(500).json({
       message: "Error adding the action."
+    });
+  }
+});
+
+server.put("/api/actions/:id", async (req, res) => {
+  console.log(req.body);
+  try {
+    const action = await ActionsDB.update(req.params.id, req.body);
+    if (action) {
+      res.status(201).json(action);
+    } else {
+      res.status(404).json({ message: "Please update an existing action." });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error updating the action."
     });
   }
 });
