@@ -25,7 +25,24 @@ server.get("/api/projects/:id", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      message: "Error retrieving the posts."
+      message: "Error retrieving the projects."
+    });
+  }
+});
+
+server.get("/api/projects/actions/:id", async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const actions = await ProjectDB.getProjectActions(req.params.id);
+    if (actions) {
+      res.status(200).json(actions);
+    } else {
+      res.status(404).json({ message: "No actions found for that project." });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Error retrieving the project's actions."
     });
   }
 });
