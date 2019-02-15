@@ -36,7 +36,9 @@ Middleware (either custom, third-party, or build-in) allows us to perform routin
 
 In RESTful web APIs, everything is a resource; we can access resources via different routes when looking with a URI. The state of these resources is not known from the client to the server and visa-versa.
 
-- [ ] What can the API return to help clients know if a request was successful?
+- [x] What can the API return to help clients know if a request was successful?
+
+The API will return an object that contains an HTTP status code and some messages/data to help the client know that the request was successful/unsuccessful.
 
 - [ ] How can we partition our application into sub-applications?
 
