@@ -28,7 +28,9 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 I learned about static routing using the paths export from Express. This allows me to deploy a site to Heroku that utilizes both server and client in the same file. In addition, I also learned that Express is a framework for the back-end in the same way that React is one for the front-end.
 
-- [ ] Describe Middleware?
+- [x] Describe Middleware?
+
+Middleware (either custom, third-party, or build-in) allows us to perform routing actions, retrieve/modify data, and provides things like security to our server. Middleware is everything that happens under the hood in Express; they are executed in a specific order on the server’s chain of events following a request.
 
 - [ ] Describe a Resource?
 
