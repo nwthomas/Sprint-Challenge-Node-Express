@@ -64,4 +64,19 @@ server.put("/api/projects/:id", async (req, res) => {
   }
 });
 
+server.delete("/api/projects/:id", async (req, res) => {
+  try {
+    const project = await ProjectDB.remove(req.params.id);
+    if (project) {
+      res.status(200).json({ message: "The project has been deleted." });
+    } else {
+      res.status(404).json({ message: "The project could not be found." });
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting the project."
+    });
+  }
+});
+
 module.exports = server;
